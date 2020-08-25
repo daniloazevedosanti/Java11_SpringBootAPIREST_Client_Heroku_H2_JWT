@@ -8,6 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Customer class entity and attributes and methods
+ * Table in the client_db database
+ * @author Danilo Azevedo
+ *
+ */
+
 @Entity
 @Table(name = "client_tb")	
 public class Client implements Serializable {

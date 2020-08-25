@@ -25,6 +25,10 @@ public class ClientResource {
 	@Autowired
 	private ClientService service;
 	
+	/**
+	 * List all registered clients 
+	 * @return response list of clients
+	 */
 	@GetMapping
 	public ResponseEntity<List<Client>> findAll(){
 		
@@ -32,12 +36,22 @@ public class ClientResource {
 		return ResponseEntity.ok().body(list);
 	}
 	
+	/**
+	 * Show client by number id in database
+	 * @param id
+	 * @return register of client by id
+	 */
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Client> findById(@PathVariable Long id){
 		Client obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	
+	/**
+	 * Register record in the database via post method
+	 * @param obj
+	 * @return successfully included record
+	 */
 	@PostMapping
 	public ResponseEntity<Client> insert(@RequestBody Client obj) {
 		obj = service.insert(obj);
@@ -46,12 +60,24 @@ public class ClientResource {
 		return ResponseEntity.created(uri).body(obj);
 	}
 	
+	/**
+	 * Delete record by id
+	 * @param id
+	 * @return response entity
+	 */
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id){
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 	
+	
+	/**
+	 * Update records in database
+	 * @param id
+	 * @param obj
+	 * @return response entity 
+	 */
 	@PutMapping
 	(value = "/{id}")
 	public ResponseEntity<Client> update(@PathVariable Long id, @RequestBody Client obj){

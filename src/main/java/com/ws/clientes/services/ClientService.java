@@ -15,6 +15,13 @@ import com.ws.clientes.repositories.ClientRepository;
 import com.ws.clientes.services.exceptions.DatabaseException;
 import com.ws.clientes.services.exceptions.ResourceNotFoundException;
 
+/**
+ * Class of service, bridges the gap between 
+ * the control resource and the jpa, has action 
+ * methods registration, listing, updating and deletion.
+ * @author Dan
+ *
+ */
 @Service
 public class ClientService {
 
